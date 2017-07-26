@@ -1,0 +1,6 @@
+language: scala
+jdk: oraclejdk8
+sudo: false
+script:
+- sbt "eval com.trueaccord.scalapb.Scalapb.enumOptions"
+- sbt "eval classOf[com.trueaccord.scalapb.Scalapb].getProtectionDomain.getCodeSource.getLocation.getPath"
