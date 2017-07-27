@@ -2,5 +2,8 @@ language: scala
 jdk: oraclejdk8
 sudo: false
 script:
+- sbt "show scalaVersion"
+- rm ~/.sbt/boot/scala-2.12.2/org.scala-sbt/sbt/1.0.0-RC2/scalapb-runtime_2.12-0.6.0.jar
+- mv ~/.ivy2/cache/com.trueaccord.scalapb/scalapb-runtime_2.12/jars/scalapb-runtime_2.12-0.6.1.jar ~/.sbt/boot/scala-2.12.2/org.scala-sbt/sbt/1.0.0-RC2/
 - sbt "eval com.trueaccord.scalapb.Scalapb.enumOptions"
 - sbt "eval classOf[com.trueaccord.scalapb.Scalapb].getProtectionDomain.getCodeSource.getLocation.getPath"
